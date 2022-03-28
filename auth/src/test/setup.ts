@@ -7,9 +7,9 @@ let mongo: any;
 beforeAll(async () => {
   process.env.JWT_KEY = 'test-auth-key-jwt';
 
-  mongo = new MongoMemoryServer();
-  const mongoUri = await mongo.getUri();
-  await mongoose.connect(mongoUri);
+  const mongo = await MongoMemoryServer.create();
+  const uri = mongo.getUri();
+  await mongoose.connect(uri);
 });
 
 beforeEach(async () => {
@@ -20,6 +20,6 @@ beforeEach(async () => {
 });
 
 afterAll(async () => {
-  await mongo.stop();
+  //await mongo.stop();
   await mongoose.connection.close();
 });
