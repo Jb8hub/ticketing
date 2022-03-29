@@ -18,8 +18,8 @@ router.post(
   ],
   validateRequest,
   async (req: Request, res: Response, next: NextFunction) => {
-    const errors = validationResult(req);
     try {
+      validationResult(req);
       const { email, password } = req.body;
       const existingUser = await User.findOne({ email });
 
