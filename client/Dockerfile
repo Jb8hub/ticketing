@@ -1,8 +1,17 @@
+# Dockerfile
+
+# base image
 FROM node:alpine
 
+# set working directory
 WORKDIR /app
+
+# copy source files
 COPY package.json ./
-RUN npm install
+
+# install dependencies
+RUN npm install 
+
 COPY * ././
 
-CMD ["npm","run", "dev"]
+CMD ["npm", "run", "dev"]
