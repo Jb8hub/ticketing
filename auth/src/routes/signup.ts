@@ -21,6 +21,7 @@ router.post(
     try {
       validationResult(req);
       const { email, password } = req.body;
+      console.log('TESTE: ' + req.body);
       const existingUser = await User.findOne({ email });
 
       if (existingUser) {

@@ -10,7 +10,9 @@ WORKDIR /app
 COPY package.json ./
 
 # install dependencies
-RUN npm install 
+RUN npm install -g npm@8.5.5
+RUN npm install
+#RUN npm i eslint-plugin-react-hooks  
 
 COPY * ././
 
